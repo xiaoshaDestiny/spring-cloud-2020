@@ -4,6 +4,7 @@ import com.learn.cloud.entities.CommonResult;
 import com.learn.cloud.entities.Payment;
 import com.learn.cloud.service.PaymentService;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,14 +16,14 @@ import javax.annotation.Resource;
  * @author xrb
  * @since 2020-04-17 0:14
  */
-@RestController(value = "/payment")
+@RestController
 @Slf4j
 public class PaymentController {
 
     @Resource
     private PaymentService paymentService;
 
-    @PostMapping(value = "/create")
+    @PostMapping(value = "/payment/create")
     public CommonResult create(Payment payment){
         int result = paymentService.create(payment);
         log.info("**************插入结果："+result);
@@ -33,7 +34,7 @@ public class PaymentController {
         }
     }
 
-    @GetMapping(value = "/get/{id}")
+    @GetMapping(value = "/payment/get/{id}")
     public CommonResult create(@PathVariable("id") Long id){
         Payment result = paymentService.getPaymentById(id);
         log.info("**************查询结果："+result);
