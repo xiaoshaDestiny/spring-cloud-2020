@@ -12,6 +12,13 @@
     <artifactId>cloud-provider-payment8001</artifactId>
 
     <dependencies>
+
+        <!--eureka-client-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+
         <!--引入项目里面的公共资源 自定义的api通用包-->
         <dependency>
             <groupId>com.learn.cloud</groupId>
