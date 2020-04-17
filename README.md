@@ -2,10 +2,10 @@
 微服务技术栈2020年版本 - 知识点整理
 
 ## 初级部分  
-1、dependencyManagement 一般出现在父工程中，子工程聚合依赖，子工程就可以不指定版本号。只是声明依赖，并不实现引入。  
-2、devtools 热启动 ctrl+alt+shift+/ 生产环境一般不开启。  
-3、restTemplate 是Spring提供的用于访问Rest服务的客户端模板工具集。  
-4、公共entity 可以使用maven clean install之后 提供给其他模块使用。  
+1、pom依赖：dependencyManagement 一般出现在父工程中，子工程聚合依赖，子工程就可以不指定版本号。只是声明依赖，并不实现引入。  
+2、开发热部署：devtools 热启动 ctrl+alt+shift+/ 生产环境一般不开启。  
+3、服务间调用restTemplate： 是Spring提供的用于访问Rest服务的客户端模板工具集。  
+4、maven基本使用：公共entity 可以使用maven clean install之后 提供给其他模块使用。  
 
 ## Eureka作为注册中心  
 1、Eureka作为服务注册功能的服务区，它是服务的注册中心。可以实现服务调用、负载均衡、服务注册与发现系统中其他的微服务。  
