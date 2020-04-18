@@ -63,7 +63,12 @@ IRule接口下面的子实现类：轮询、随机、重试、带权重、跳过
 自定义负载均衡配置不能放在@ComponentScan扫描的包下面。新建配置类，返回IRule下面的一个自类的实例。    
 在访问客户端加上注解，指定要调用的服务及负载均衡配置类即可。@RibbonClient(name = "CLOUD-PAYMENT-SERVICE",configuration = MySelfRule.class)  
   
-4、自定义负载均衡算法
+4、轮询负载均衡算法的实现逻辑
+rest接口第几次请求 % 服务器集群总数量 = 实际调用服务器的下标位置，每次服务重启之后rest接口计数从1开始。
+  
+    
+
+
 
 
 
