@@ -39,6 +39,33 @@
 2、服务发现：提供HTTP和DNS两种发现方式、健康监测：支持多种方式。HTTP,TCP，Docker，Shell脚本定制化。KV存储。多数据中心。可视化web界面。
   
 3、consul.exe agent -dev 本地模式启动consul
+
+三个注册中心的异同点  
+Eureka  Java语言  AP 可以配置支持健康检查 对外暴露HTTP接口  
+Consul  Go语言    CP 支持服务健康检查     对外暴露HTTP/DNS接口  
+Zookeeper Java语言 CP  支持服务健康检查  客户端         
+C强一致性、A可用性、P分区容错。
+
+
+## Ribbon 负载均衡
+目前进入了维护模式。
+负载均衡：将请求平均分配到各个服务器上，达到系统的HA。
+Nginx是服务器负载均衡，客户端请求会交给nginx nginx帮助实现请求的转发。  
+  
+Ribbon是本地负载均衡，在调用微服务接口的时候，会在注册中心上获取户厕信息服务列表之后缓存到JVM本地，在本地实现RPC远程服务调用。  
+集中式LB:在服务消费方和提供方之间是有的独立LB设置。  
+进程式LB:消费方从服务注册中心知道有哪些服务地址可用，自己选择一个合适的服务器。  
+  
+netflix-eureka天生就带有ribbon
+
+
+
+ 
+
+
+
+
+
   
 
 
