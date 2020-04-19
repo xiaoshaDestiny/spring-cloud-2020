@@ -12,4 +12,7 @@ eureka:
 #设置feign客户端超时时间 OpenFeign默认是支持ribbon的
 ribbon:
   ReadTimeOut: 5000      #建立连接所用时间
-  ConnectTimeOut: 5000   #建立连接后读取可用资源的时间
+  ConnectTimeOut: 5000    #建立连接后读取可用资源的时间
+logging:
+  level:
+    com.learn.cloud.service.PaymentFeignService: debug
