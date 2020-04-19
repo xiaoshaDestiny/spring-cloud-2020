@@ -10,9 +10,19 @@ eureka:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka         #集群版本的eureka
 
 #设置feign客户端超时时间 OpenFeign默认是支持ribbon的
+#这是原来的 不好使 下面的才好使
+#ribbon的超时时间
+#ribbon:
+#  ReadTimeOut: 5000      #建立连接所用时间
+#  ConnectTimeOut: 5000    #建立连接后读取可用资源的时间
 ribbon:
-  ReadTimeOut: 5000      #建立连接所用时间
-  ConnectTimeOut: 5000    #建立连接后读取可用资源的时间
+    httpclient:
+      enabled: true
+    MaxConnectionsPerHost: 500
+    MaxTotalConnections: 2000
+    ConnectTimeout: 60000
+    ReadTimeout: 60000
+
 logging:
   level:
     com.learn.cloud.service.PaymentFeignService: debug
