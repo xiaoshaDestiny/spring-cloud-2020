@@ -9,25 +9,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-consumer-feign-order80</artifactId>
+    <artifactId>cloud-consumer-feign-hystrix-order80</artifactId>
 
     <dependencies>
+
         <!--open-feign服务接口调用-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
 
+        <!--客户端 hystrix-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+
         <!--eureka-client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
-        </dependency>
-        <!--引入项目里面的公共资源 自定义的api通用包-->
-        <dependency>
-            <groupId>com.learn.cloud</groupId>
-            <artifactId>cloud-api-commons</artifactId>
-            <version>${project.version}</version>
         </dependency>
 
         <!--web启动器-->
@@ -40,6 +41,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
+
         <!--热部署-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,6 +49,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
         <!--lombok-->
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -54,6 +57,7 @@
             <version>1.16.18</version>
             <optional>true</optional>
         </dependency>
+
         <!--SpringBoot测试-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
