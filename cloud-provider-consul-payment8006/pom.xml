@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>cloud-privider-consul-payment8006</artifactId>
+    <artifactId>cloud-provider-consul-payment8006</artifactId>
 
     <dependencies>
         <!--使用consul作为服务注册中心-->
