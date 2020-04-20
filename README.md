@@ -89,11 +89,11 @@ rest接口第几次请求 % 服务器集群总数量 = 实际调用服务器的�
 服务提供方：超时、down机时候必须要有服务的降级处理。
 服务消费方的调用时间满足不了自我要求，也要进行服务的降级处理。
   
-@HystrixCommand标注在服务提供者上.设置自身调用超时的时间峰值，峰值之内可以正常运行，超时要有兜底的方法处理，作为服务降级fallback。    
-@EnableCircuitBreaker 标注在服务提供方的主启动类上,开区服务提供方的服务降级配置。
-@EnableHystrix 标注在服务消费方的主启动类上。
+@HystrixCommand标注在服务提供者上。可以设置自身调用超时的时间峰值，峰值之内可以正常运行，超时要有兜底的方法处理，作为服务降级fallback。    
+@EnableCircuitBreaker 标注在服务提供方的主启动类上,开区服务提供方的服务降级配置。  
+@EnableHystrix 标注在服务消费方的主启动类上。  
   
-  
+@DefaultProperties(defaultFallback = "paymentGlobalFallbackMethod")标注在controller类上，指定全局的服务降级兜底方法。
   
 
   
