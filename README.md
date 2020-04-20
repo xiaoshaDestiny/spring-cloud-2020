@@ -93,10 +93,17 @@ rest接口第几次请求 % 服务器集群总数量 = 实际调用服务器的�
 @EnableCircuitBreaker 标注在服务提供方的主启动类上,开区服务提供方的服务降级配置。  
 @EnableHystrix 标注在服务消费方的主启动类上。  
   
-  
 @DefaultProperties(defaultFallback = "paymentGlobalFallbackMethod")标注在controller类上，指定全局的服务降级兜底方法。
 因为消费方都是使用FeignClient指定的调用的服务名称( _@FeignClient(value = "CLOUD-PAYMENT-HYSTRIX-SERVICE")_ )，所以可以为Feign客户端定义一个处理服务降级的处理类就可以完成业务和兜底方法的解耦合。
- 
+
+**服务熔断**  
+close  open  half-close  
+熔断机制是应对雪崩效应的一种微服务链路保护机制。当删除链路的某个微服务出错不可用或者响应时间太长时。
+会对服务降级，进而熔断该节点的微服务调用，快速返回报错的响应信息。
+当检测到该节点的响应正常之后，恢复链路调用。
+Hystrix熔断机制，当失败的调用达到一定的阈值，缺省是5秒内20次调用失败，就会启动熔断机制，使用的注解是@HystrixCommand
+
+
 
   
 
