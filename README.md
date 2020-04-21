@@ -157,8 +157,9 @@ Cookie Route Predicate 需要配置两个参数，一个是Cookie name，一个�
 Header\Host\Method\Path\Query 
 说白了就是实现一组匹配规则，让请求过来找到对应的Route进行处理。
   
-
 5、Filter  
+在请求被路由的前或者后，对请求进行修改。
+
 
 
 
