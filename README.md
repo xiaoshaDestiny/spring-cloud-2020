@@ -177,9 +177,10 @@ dev分支: http://config-3344.com:3344/dev/config-dev.yml
 (1) pom中有actuator监控。  
 (2) bootstrap.yml中有暴露监控端点。 managerment......  
 (3) 在业务类上加上 @RefreshScope  
-(4) 每次修改完毕github上的内容，都发送post请求给3355  http://localhost:3355/actuator/refresh  
+(4) 每次修改完毕github上的内容，都发送post请求给3355  http://localhost:3355/actuator/refresh    
+尽管能做到不重启服务就能刷新配置，但还是需要给服务单独发送一个post请求，还是会有麻烦，这就需要消息总线的支持。  
 
-
+## bus 消息总线
 
 
 
