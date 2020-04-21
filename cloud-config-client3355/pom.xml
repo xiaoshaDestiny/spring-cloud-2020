@@ -12,6 +12,12 @@
     <artifactId>cloud-config-client3355</artifactId>
 
     <dependencies>
+        <!--bus 消息总线-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <!--配置中心-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>

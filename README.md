@@ -185,7 +185,24 @@ Spring Cloud Bus 配合Spring Cloud Config使用，可以实现配置的动态�
 所有微服务订阅了一个主题，就能自动化的更新配置。  
 Bus是一个将分布式系统的节点与轻量级的消息系统链接起来的框架，它整合了Java的事件处理机制和消息中间件的功能。
 Bus能管理和传播分布式系统之间的消息，就像一个分布式执行器，可用于关闭状态更改，事件推送等，也可以当做微服务之间的通讯通道。
-需要安装RabbitMQ
+  
+全局通知  和  精确打击 
+需要安装RabbitMQ。在配置中心服务端和客户端，都添加消息总线RabbitMQ的依赖支持。并且在配置中心添加mq相关的配置。
+当配置文件被改动之后，不需要通知每一个微服务，只需要通知配置中心即可。发送一个post请求给配置中心。
+```
+management:  
+  endpoints:  
+    web:  
+      exposure:  
+        include: 'bus-refresh'  #刷新配置 
+        
+http://localhost:3344/actuator/bus-refresh                 全局通知
+http://localhost:3344/actuator/bus-refresh/config-client:3355 （微服务名称:端口） 定点通知，只通知3355
+```
+
+
+
+
 
 
 

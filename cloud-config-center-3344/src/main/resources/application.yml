@@ -10,12 +10,25 @@ spring:
           uri: git@github.com:xiaoshaDestiny/springcloud-config.git
           search-paths:
             - springcloud-config
-      #读取分支
-      label: master
+      label: master   #读取分支
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
 
 eureka:
   client:
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka,http://eureka7002.com:7002/eureka         #集群版本的eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: 'bus-refresh'  #刷新配置
+
+
+
 
 
