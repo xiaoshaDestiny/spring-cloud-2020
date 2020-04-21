@@ -20,6 +20,8 @@ spring:
           uri: lb://cloud-payment-service   #匹配后提供服务的路由地址
           predicates:
             - Path=/payment/lb/**
+            - Header=Id,\d+                 #请求头带一个整数Id
+            #- Cookie=username,xrb
 
 #固定写死的路由配置
 #spring:
