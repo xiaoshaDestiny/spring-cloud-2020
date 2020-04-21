@@ -172,10 +172,12 @@ dev分支: http://config-3344.com:3344/dev/config-dev.yml
 公式3： /{application}/{profile}[/{label}]
 
 3、GitHub上面配置文件修改，配置中心能够很快的做出改变，但是连接配置中心的client服务端则不能（需要重启）。
-怎么解决呢？  
-动态刷新。对3355进行升级
-pom中有actuator监控。
-bootstrap.yml中有暴露监控端点。 managerment......
+怎么解决呢？保证真正的动态刷新。  
+对3355进行升级：  
+(1) pom中有actuator监控。  
+(2) bootstrap.yml中有暴露监控端点。 managerment......  
+(3) 在业务类上加上 @RefreshScope  
+(4) 每次修改完毕github上的内容，都发送post请求给3355  http://localhost:3355/actuator/refresh  
 
 
 
