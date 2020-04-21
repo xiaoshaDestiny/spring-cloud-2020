@@ -165,14 +165,14 @@ Header\Host\Method\Path\Query
 
 2、配置文件的读取规则
 >三种： label分支名  name服务名  profile环境名
-公式1： /{label}/{application}-{profile}.yml
-master分支: http://config-3344.com:3344/master/config-dev.yml
-dev分支: http://config-3344.com:3344/dev/config-dev.yml
-公式2： /{application}-{profile}.yml
-公式3： /{application}/{profile}[/{label}]
+公式1： /{label}/{application}-{profile}.yml  
+master分支: http://config-3344.com:3344/master/config-dev.yml  
+dev分支: http://config-3344.com:3344/dev/config-dev.yml  
+公式2： /{application}-{profile}.yml  
+公式3： /{application}/{profile}[/{label}]  
 
 3、GitHub上面配置文件修改，配置中心能够很快的做出改变，但是连接配置中心的client服务端则不能（需要重启）。
-怎么解决呢？保证真正的动态刷新。  
+怎么解决呢？保证真正的动态刷新，不用重启每一个连接的服务。  
 对3355进行升级：  
 (1) pom中有actuator监控。  
 (2) bootstrap.yml中有暴露监控端点。 managerment......  
