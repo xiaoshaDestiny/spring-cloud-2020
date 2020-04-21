@@ -163,6 +163,16 @@ Header\Host\Method\Path\Query
 1、集中的管理配置文件。不同环境不同配置，动态化的配置更新，分环境部署（dev/test/prod/beat/release）
 运行期间动态调整，服务自己向配置中心拉取配置信息。配置改变的时候不需要重启，服务自己感知并且更新应用。配置信息以REST接口的形式暴露。
 
+2、配置文件的读取规则
+>三种： label分支名  name服务名  profile环境名
+公式1： /{label}/{application}-{profile}.yml
+master分支: http://config-3344.com:3344/master/config-dev.yml
+dev分支: http://config-3344.com:3344/dev/config-dev.yml
+公式2： /{application}-{profile}.yml
+公式3： /{application}/{profile}[/{label}]
+
+
+
 
 
 
