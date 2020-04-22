@@ -202,7 +202,21 @@ http://localhost:3344/actuator/bus-refresh/config-client:3355 （微服务名称
 ```
 
 
-## stream 消息驱动
+## Stream 消息驱动
+1、解决的技术痛点：不再关注MQ的细节，一种绑定方式，自动在各种MQ之间切换。屏蔽底层消息中间件的差异，降低切换的成本，统一消息的编程模型。  
+它是一个构建消息驱动微服务的架构，程序通过input和output与Binder对象进行交互，而通过配置绑定后，Binder对象与中间件进行交互。目前仅仅支持RabbitMQ和Kafka。
+通过定义绑定器Binder作为中间层，实现了应用程序与消息中间件细节之间的隔离。input对应消费者，output对应在生产者。  
+  
+2、Stream 的流程套路。Binder屏蔽差异，Channel通道，队列的一种抽象，实现存储和转发。Source和Sink输入输出，发布消息就是输出，接收消息就是输入。
+  
+3、组件注解  
+Middleware 中间件，目前仅仅支持RabbitMQ和Kafka  
+Binder 是应用与中间件之间的封装。  
+@Input 标识输入通道  
+@Output 标识输出通道  
+@StreamListener 监听队列，消费者的队列消息接收  
+@EnableBinding 把Channel和exchange绑定在一起  
+
 
 
 
