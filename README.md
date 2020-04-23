@@ -222,8 +222,39 @@ Binder 是应用与中间件之间的封装。
 Stream中处于同一个group的多个消费者是竞争关系，能够保证一个消息只被一个应用消费一次。处于不同组的是可以全面消费的。    
 rabbitmq会分配一个组流水号。当开启了分组之后，mq是默认支持持久化的，当消费者宕机之后重连，是能接收到宕机期间发送的消息的。  
 
+## Sleuth
+一个请求最终是由多个微服务节点来共同协调产生最后的结果的，这个调用链路中任何一个环节出现问题都会引起整个请求的最终失败。  
+Sleuth负责收集整理，Zipkin负责做书记的展现。  
+zipkin从SpringCloud的F版本开始不再需要构建ZipKinServer了，只需要调用Jar包即可。
+https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/
+下载之后：java -jar zipkin-server-2.12.9-exec.jar  在9411端口
+在需要进行链路追踪的模块下，引入zipkin的pom依赖
+```
+order服务 调用 payment服务
+第一步：都添加依赖
+    <!--zipkin-->
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-zipkin</artifactId>
+    </dependency>
+第二步：下载jar包 启动 
+https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/
+java -jar zipkin-server-2.12.9-exec.jar  暴露在9411端口 
+      
+第三步：都开启配置
+spring:
+  application:
+    name: cloud-payment-service
+  zipkin:
+    base-url: http://localhost:9411
+  sleuth:
+    sampler:
+      probability: 1  #采样率的值 介于 0-1 之间  1表示全部采集
 
 
+
+
+```
 
 
 

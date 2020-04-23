@@ -12,13 +12,16 @@
     <artifactId>cloud-provider-payment8001</artifactId>
 
     <dependencies>
-
+        <!--zipkin-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <!--eureka-client-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>
-
         <!--引入项目里面的公共资源 自定义的api通用包-->
         <dependency>
             <groupId>com.learn.cloud</groupId>
