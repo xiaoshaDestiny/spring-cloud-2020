@@ -231,7 +231,8 @@ https://dl.bintray.com/openzipkin/maven/io/zipkin/java/zipkin-server/
 在需要进行链路追踪的模块下，引入zipkin的pom依赖
 ```
 order服务 调用 payment服务
-第一步：都添加依赖
+
+第一步：都添加依赖  web actuator zipkin
     <!--zipkin-->
     <dependency>
         <groupId>org.springframework.cloud</groupId>
@@ -250,10 +251,6 @@ spring:
   sleuth:
     sampler:
       probability: 1  #采样率的值 介于 0-1 之间  1表示全部采集
-
-
-
-
 ```
 
 
