@@ -253,6 +253,16 @@ spring:
       probability: 1  #采样率的值 介于 0-1 之间  1表示全部采集
 ```
 
+# Spring Cloud Alibaba  
+2018年10月31日 alibaba 入驻Spring Cloud官方孵化器。  
+它支持服务降级限流：默认支持Servlet\Feign\RestTemplate\Dubbo\RocketMQ限流降级功能接入，可以在运行时通过控制套实时修改限流降级规则，还支持查看限流降级Metrics监控。    
+服务注册与发现：适配SpringCloud的服务注册与发现，默认集成了Ribbon的支持。  
+分布式管理配置：支持分布式系统的外部化配置，配置更新时自动刷新。  
+消息驱动能力：基于Spring Cloud Stream为微服务应用构建消息驱动能力。  
+阿里云对象存储、分布式任务调度。
+
+## Nacos
+
 
 
 
