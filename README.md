@@ -262,6 +262,11 @@ spring:
 阿里云对象存储、分布式任务调度。
 
 ## Nacos
+Naming + Configuration + Service   注册命名、配置的服务组件，是一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。(Eureka + Config + Bus)
+github地址  https://github.com/alibaba/nacos/releases  
+
+
+
 
 
 
