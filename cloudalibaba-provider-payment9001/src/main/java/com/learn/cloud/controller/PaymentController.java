@@ -1,5 +1,6 @@
 package com.learn.cloud.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,6 +15,7 @@ import java.util.UUID;
  */
 @RestController
 @RequestMapping("/payment")
+@Slf4j
 public class PaymentController {
 
     @Value("${server.port}")
@@ -21,6 +23,8 @@ public class PaymentController {
 
     @GetMapping("/nacos/{id}")
     public String getPayment(@PathVariable("id")  Integer id){
-        return "id is : <"+ id+">nacos register  server port is :<"+serverPort+">  uuid is :<"+UUID.randomUUID().toString()+">";
+        String result = "id is : <"+ id+">nacos register  server port is :<"+serverPort+">  uuid is :<"+UUID.randomUUID().toString()+">";
+        log.info(result);
+        return result;
     }
 }
