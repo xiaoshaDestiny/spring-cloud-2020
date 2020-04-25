@@ -264,6 +264,18 @@ spring:
 ## Nacos
 Naming + Configuration + Service   注册命名、配置的服务组件，是一个更易于构建云原生应用的动态服务发现、配置管理和服务管理平台。(Eureka + Config + Bus)
 github地址  https://github.com/alibaba/nacos/releases  
+  
+**nacos支持从CP-AP的切换**  
+C是所有节点在同一时间看到的数据时一致的，A是所有的请求都会收到响应。  
+
+**nacos作为服务配置中心**  
+配置规则：${prefix}-${spring.profile.active}.${file-extension}  
+
+
+
+
+
+
 
 
 
