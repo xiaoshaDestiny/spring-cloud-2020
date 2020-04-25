@@ -272,6 +272,13 @@ C是所有节点在同一时间看到的数据时一致的，A是所有的请求
 配置规则：${prefix}-${spring.profile.active}.${file-extension}  
 
 
+Namespace Group DataId 之间的关系：  
+namesapce: Nacos默认的命名空间是public，namespace主要用来实现隔离。比如说三个环境，开发、测试、生产，就可以创建三个namespace。
+group: 可以把不同的微服务划分带同一个分组里面去  
+service:一个微服务可以包含多个Cluster集群，Nacos默认Cluster是default,比方说为了容灾，将微服务分别部署在AB两处不同的机房。这时就可以给A地方的service微服务起一个名称。
+Instance：微服务实例   
+
+
 
 
 
