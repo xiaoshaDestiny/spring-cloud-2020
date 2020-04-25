@@ -287,6 +287,11 @@ nacos在多台机器上启动。并且都使用同一个数据库作为持久胡
 nginx代理多个nacos节点，对外统一暴露ip和端口。  
 服务注册的链接地址是nginx的地址，实际注册带nacos又nginx去做代理。  
 
+## Sentinel 熔断限流  分布式系统的流量防卫兵
+对比Hystrix Sentinel能独立出来形成一个单独的组件，不需要像Eureka、Hystrix那样单独写微服务代码。能提供界面化，细粒度的监控统一配置。  
+
+
+
 
 
 
