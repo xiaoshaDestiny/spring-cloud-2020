@@ -270,8 +270,7 @@ C是所有节点在同一时间看到的数据时一致的，A是所有的请求
 
 **nacos作为服务配置中心**  
 配置规则：${prefix}-${spring.profile.active}.${file-extension}  
-
-
+  
 Namespace Group DataId 之间的关系：  
 namesapce: Nacos默认的命名空间是public，namespace主要用来实现隔离。比如说三个环境，开发、测试、生产，就可以创建三个namespace。
 group: 可以把不同的微服务划分带同一个分组里面去  
@@ -289,6 +288,15 @@ nginx代理多个nacos节点，对外统一暴露ip和端口。
 
 ## Sentinel 熔断限流  分布式系统的流量防卫兵
 对比Hystrix Sentinel能独立出来形成一个单独的组件，不需要像Eureka、Hystrix那样单独写微服务代码。能提供界面化，细粒度的监控统一配置。  
+
+QPS/线程    
+QPS:当每秒钟调用api的QPS达到阈值的之后，进行限流。  
+线程数：当调用api的线程数量达到阈值的时候，进行限流。  
+流控模式：
+(1)直接：快速失败。  
+(2)关联:当关联的资源达到阈值的时候，就限流自己，AB两个api,B达到阈值，就限流A。
+(3)链路：
+
 
 
 
