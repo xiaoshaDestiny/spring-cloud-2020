@@ -328,8 +328,9 @@ Sentinel处理的只是控制台配置的违规情况会有blockHandller方法�
 @SentinelResource  
 在该注解上可以指定兜底的处理方法位于哪个类的那个方法。可以配置全局的，也可以配置一对一的。
 
-服务熔断
-
+服务熔断  
+fallback  管理运行时异常  
+blockHandler 管理配置违规  
 
   
 

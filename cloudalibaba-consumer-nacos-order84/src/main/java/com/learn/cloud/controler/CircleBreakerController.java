@@ -18,13 +18,12 @@ import javax.annotation.Resource;
 @Slf4j
 public class CircleBreakerController {
 
-    public static final String SERVICE_URL = "http://nacos-paymnet-provider";
+    public static final String SERVICE_URL = "http://nacos-payment-provider";
 
     @Resource
     private RestTemplate restTemplate;
 
     @RequestMapping("/consumer/fallback/{id}")
-
     public CommonResult<Payment> fallback(@PathVariable("id") Long id){
 
         CommonResult result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class, id);
