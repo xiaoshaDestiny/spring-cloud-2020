@@ -19,9 +19,9 @@
             <artifactId>cloud-api-commons</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--   openfeign -->
+        <!--openfeign-->
         <dependency>
-            <groupId>com.springframework.cloud</groupId>
+            <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
         <!--   nacos-discovery -->

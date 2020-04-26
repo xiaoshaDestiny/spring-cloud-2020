@@ -1,5 +1,6 @@
 package com.learn.cloud.controler;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.learn.cloud.entities.CommonResult;
 import com.learn.cloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
@@ -24,6 +25,7 @@ public class CircleBreakerController {
     private RestTemplate restTemplate;
 
     @RequestMapping("/consumer/fallback/{id}")
+    @SentinelResource(value = "fallback")
     public CommonResult<Payment> fallback(@PathVariable("id") Long id){
 
         CommonResult result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class, id);

@@ -11,6 +11,22 @@
 
     <artifactId>cloudalibaba-provider-payment9002</artifactId>
     <dependencies>
+        <!--openfeign-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--   nacos-discovery -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+        </dependency>
+        <!--  sentinel-datasource 做持久化  -->
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-datasource-nacos</artifactId>
+        </dependency>
+
         <!--SpringCloud ailibaba nacos -->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
