@@ -30,7 +30,10 @@ public class CircleBreakerController {
     //@SentinelResource(value = "fallback")//什么都不配置
     //@SentinelResource(value = "fallback",fallback = "handlerFallback")//只负责业务上的异常
     //@SentinelResource(value = "fallback",blockHandler = "blockHandler")//只配置阻塞异常，需要配置降级规则，才能跑到兜底的方法上
-    @SentinelResource(value = "fallback",fallback = "handlerFallback", blockHandler = "blockHandler")//两种都配置  各回各家
+    @SentinelResource(value = "fallback",fallback = "handlerFallback",
+            blockHandler = "blockHandler",exceptionsToIgnore = {IllegalArgumentException.class}
+
+    )//两种都配置  各回各家
     public CommonResult<Payment> fallback(@PathVariable("id") Long id){
         CommonResult result = restTemplate.getForObject(SERVICE_URL + "/paymentSQL/" + id, CommonResult.class, id);
         if(id == 4){
