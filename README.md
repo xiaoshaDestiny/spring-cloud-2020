@@ -337,6 +337,41 @@ blockHandler 管理配置违规
    
 exceptionsToIgnore = {IllegalArgumentException.class} 忽略配置中的异常。不再有fallback兜底，也不会有降级效果。
 
+Sentinel规则持久化  
+当服务重启之后，原先在Sentinel上配置的规则就全部消失了。
+将限流规则持久化保存到Nacos，只要刷新某个rest地址，sentinel控制台的流控规则就能看到，并且正常生效。  
+只要Nacos里面的配置不删除，流控规则就一直持续有效。
+
+```
+1、在pom里面添加 sentinel-datasource-nacos
+2、在yml里面添加数据源
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+      datasource:
+        ds1:
+          nacos:
+            server-addr: localhost:8848
+            dataId: cloudalibaba-sentinel-service
+            groupId:  DEFAULT_GROUP
+            data-type:  json
+            rule-type:  flow
+3、结合Nacos做Sentinel流控的持久化规则 ，在nacos中新建规则即可，json格式    
+[{
+    "resource":"/testA",
+    "limitApp":"default",
+    "grade":1,
+    "count":1,
+    "strategy":0,
+    "controlBehavior":0,
+    "clusterMode":false
+}]       
+
+4、重启服务之后，发现规则是持续生效的
+```
+
+
 
 
   
