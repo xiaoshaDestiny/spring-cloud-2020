@@ -35,8 +35,7 @@ public class OrderServiceImpl implements OrderService {
      * @param order 订单对象
      */
     @Override
-    //@GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
-    ///@GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
+    @GlobalTransactional(name = "fsp-create-order", rollbackFor = Exception.class)
     public void create(Order order) {
         // 1 新建订单
         log.info("----->开始新建订单");
@@ -51,6 +50,8 @@ public class OrderServiceImpl implements OrderService {
         log.info("----->订单微服务开始调用账户,做扣减Money");
         accountService.decrease(order.getUserId(), order.getMoney());
         log.info("----->订单微服务开始调用账户,做扣减End");
+
+        int i = 10/0;
 
         // 4 修改订单状态,从0到1,1代表已完成
         log.info("----->修改订单状态开始");

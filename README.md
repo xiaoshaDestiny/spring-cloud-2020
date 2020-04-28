@@ -435,8 +435,13 @@ CREATE TABLE `t_storage` (
 完成数据库的准备
 ```
 
+调用测试:不加事务控制，会存在分布式事务问题。    
+启动2001、2001、2003    
+http://localhost:2001/order/create?userId=1&productId=1&count=10&money=100    
 
 
+会一直报错，但是不影响业务测试。  
+2020-04-28 23:58:47.246 ERROR 13080 --- [imeoutChecker_1] i.s.c.r.netty.NettyClientChannelManager  : no available server to connect.
 
 
 
