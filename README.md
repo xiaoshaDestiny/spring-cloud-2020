@@ -391,4 +391,68 @@ RM:控制分支事务，负责分支注册、状态汇报，并接收事务协�
 5、TC调度XID下管辖的全部分支事务完成提交或者回滚请求  
 
 
+业务说明：
+下订单-扣库存-减余额-改订单状态
+```
+1、建库seata 运行db_store.sql
+
+2、建库seata_order 建一张表 t_order
+DROP TABLE IF EXISTS `t_order`;
+CREATE TABLE `t_order` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) DEFAULT NULL COMMENT '用户id',
+  `product_id` int(11) DEFAULT NULL COMMENT '产品id',
+  `count` int(11) DEFAULT NULL COMMENT '数量',
+  `money` decimal(11,0) DEFAULT NULL COMMENT '金额',
+  `status` int(1) DEFAULT NULL COMMENT '订单状态，0创建，1完结',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+
+3、建库seata_account 建一张表 t_account
+DROP TABLE IF EXISTS `t_account`;
+CREATE TABLE `t_account` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `user_id` bigint(11) DEFAULT NULL COMMENT '用户id',
+  `total` decimal(10,0) DEFAULT NULL COMMENT '总额度',
+  `used` decimal(10,0) DEFAULT NULL COMMENT '已用额度',
+  `residue` decimal(10,0) DEFAULT NULL COMMENT '剩余可以额度',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+4、建库seata_storage 建一张表 t_storage
+DROP TABLE IF EXISTS `t_storage`;
+CREATE TABLE `t_storage` (
+  `id` bigint(11) NOT NULL AUTO_INCREMENT,
+  `product_id` int(11) DEFAULT NULL COMMENT '产品id',
+  `total` int(11) DEFAULT NULL COMMENT '总库存',
+  `used` int(11) DEFAULT NULL COMMENT '已用库存',
+  `residue` int(11) DEFAULT NULL COMMENT '剩余库存',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+5、把db_undo_log.sql 在每一个库里面都执行一下 
+
+完成数据库的准备
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
