@@ -371,7 +371,7 @@ Sentinel规则持久化
 4、重启服务之后，发现规则是持续生效的
 ```
 
-## Seata 处理分布式事务
+## Seata 处理分布式事务  GTS  @GlobalTransactional
 分布式事务：跨数据源的一套请求，具有事务的特性。
 当单体应用被拆分成为多个独立的应用，并且使用的是三个独立的数据源的时候。  
 业务上的操作需要调用三个服务来完成，此时每个服务内部的数据一致性又本地事务来保证，但是全局的数据一致性问题没办法保证。  
@@ -439,11 +439,11 @@ CREATE TABLE `t_storage` (
 启动2001、2001、2003    
 http://localhost:2001/order/create?userId=1&productId=1&count=10&money=100    
 
-
 会一直报错，但是不影响业务测试。  
 2020-04-28 23:58:47.246 ERROR 13080 --- [imeoutChecker_1] i.s.c.r.netty.NettyClientChannelManager  : no available server to connect.
 
 
+@GlobalTransactional  分布式事务 GTS
 
 
 
