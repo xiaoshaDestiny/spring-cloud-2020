@@ -441,9 +441,16 @@ http://localhost:2001/order/create?userId=1&productId=1&count=10&money=100
 
 会一直报错，但是不影响业务测试。  
 2020-04-28 23:58:47.246 ERROR 13080 --- [imeoutChecker_1] i.s.c.r.netty.NettyClientChannelManager  : no available server to connect.
+  
+@GlobalTransactional  分布式事务 GTS  
+  
+**详解TC TM RM**
+TC:全局分布式事务协调管理器，也就是seata服务器。
+TM:事务发起方,标注了@GlobalTransactional注解的服务
+RM:事务参与方,本次事务涉及到的数据库
 
 
-@GlobalTransactional  分布式事务 GTS
+
 
 
 
