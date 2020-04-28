@@ -13,5 +13,5 @@ public interface OrderDao {
 
     void create(Order order);
 
-    void update(@Param("userId") Long userId, @Param("state") Integer state);
+    void update(@Param("userId") Long userId, @Param("status") Integer status);
 }

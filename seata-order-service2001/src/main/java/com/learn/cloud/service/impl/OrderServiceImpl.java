@@ -30,7 +30,7 @@ public class OrderServiceImpl implements OrderService {
     /**
      * 创建订单->调用库存服务扣减库存->调用账户服务扣减账户余额->修改订单状态
      * 简单说:
-     * 下订单->减库存->减余额->改状态
+     * 下订单->调用库存减库存->调用账户减余额->本服务改状态
      * GlobalTransactional seata开启分布式事务,异常时回滚,name保证唯一即可
      * @param order 订单对象
      */

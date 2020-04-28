@@ -25,11 +25,6 @@ public class AccountServiceImpl implements AccountService {
     @Override
     public void decrease(Long userId, BigDecimal money) {
         LOGGER.info("----> account-service中扣减用户余额开始");
-        try {
-            TimeUnit.SECONDS.sleep(20);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         accountDao.decrease(userId,money);
         LOGGER.info("----> account-service中扣减用户余额开始");
     }
