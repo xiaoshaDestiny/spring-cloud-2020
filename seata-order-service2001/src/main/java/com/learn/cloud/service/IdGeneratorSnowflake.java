@@ -43,6 +43,7 @@ public class IdGeneratorSnowflake {
     }
 
     public static void main(String[] args) {
+        log.info("当前机器的workerId:{}", NetUtil.ipv4ToLong(NetUtil.getLocalhostStr()));
         System.out.println(new IdGeneratorSnowflake().snowflakeId());
     }
 }
