@@ -48,6 +48,6 @@ public class OrderController {
             });
         }
         threadPool.shutdown();
-        return "hello snowflake";
+        return "snowflake";
     }
 }
